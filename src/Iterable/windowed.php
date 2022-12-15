@@ -41,7 +41,7 @@ function windowed(
         if ($size > $windowSize) {
             break;
         }
-        $result[] = $transform(array_slice($iterable, $index, $windowSize));
+        $result[] = $transform(array_slice(iterator_to_array($iterable), $index, $windowSize));
         $index += $step;
     }
 

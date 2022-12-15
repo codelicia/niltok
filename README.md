@@ -9,10 +9,13 @@ and can be very useful for efficiency and functional programming.
 - `entails(bool, ?string)`
 - `println(string)`
 - `check(bool, ?string)`
+- `throws(bool, Throwable)`
 - `TODO(string)`
+- `windowed(array, int, int, (x) -> y)`
 - `error(string)`
 - `repeat(int, (index) -> void)`
 
 ### Classes
 
 - `IntRange`
+- `Pair`

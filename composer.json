@@ -11,6 +11,8 @@
       "./src/Standard/TODO.php",
       "./src/Standard/error.php",
       "./src/Standard/check.php",
+      "./src/Standard/entails.php",
+      "./src/Iterable/windowed.php",
       "./src/String/trim_start.php",
       "./src/String/is_blank.php",
       "./src/Standard/println.php"

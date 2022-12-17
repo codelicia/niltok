@@ -18,11 +18,13 @@ final class Result implements JsonSerializable
     {
     }
 
-    public function isSuccess(): bool {
+    public function isSuccess(): bool
+    {
         TODO();
     }
 
-    public function isFailure(): bool {
+    public function isFailure(): bool
+    {
         TODO();
     }
 

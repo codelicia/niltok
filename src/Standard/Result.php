@@ -14,18 +14,21 @@ use JsonSerializable;
  */
 final class Result implements JsonSerializable
 {
-    public function __construct(private mixed $value)
+    private array $value;
+
+    public function __construct(mixed $value)
     {
+        $this->value = [$value];
     }
 
     public function isSuccess(): bool
     {
-        TODO();
+        return isset($this->value[0]);
     }
 
     public function isFailure(): bool
     {
-        TODO();
+        return !$this->isSuccess();
     }
 
     public function jsonSerialize(): mixed

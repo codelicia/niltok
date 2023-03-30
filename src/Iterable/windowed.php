@@ -36,12 +36,14 @@ function windowed(
     $result = new ArrayObject();
     $index = 0;
     $range = new IntRange(0, $thisSize - 1);
+    $array = is_array($iterable) ? $iterable : iterator_to_array($iterable);
+
     while ($range->contains($index)) {
         $windowSize = min($size, ($thisSize - $index));
         if ($size > $windowSize) {
             break;
         }
-        $result[] = $transform(array_slice(iterator_to_array($iterable), $index, $windowSize));
+        $result[] = $transform(array_slice($array, $index, $windowSize));
         $index += $step;
     }
 

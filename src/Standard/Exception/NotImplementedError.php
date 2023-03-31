@@ -6,10 +6,8 @@ namespace Codelicia\Niltok\Standard\Exception;
 
 use RuntimeException;
 
-/**
- * @internal
- */
+/** @internal */
 final class NotImplementedError extends RuntimeException
 {
-    protected $message = "An operation is not implemented.";
+    protected $message = 'An operation is not implemented.';
 }

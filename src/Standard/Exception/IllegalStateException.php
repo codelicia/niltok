@@ -6,9 +6,7 @@ namespace Codelicia\Niltok\Standard\Exception;
 
 use RuntimeException;
 
-/**
- * @internal
- */
+/** @internal */
 final class IllegalStateException extends RuntimeException
 {
 }

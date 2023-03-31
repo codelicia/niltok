@@ -11,7 +11,7 @@ namespace Codelicia\Niltok\Standard;
  *
  * @return void
  */
-function TODO(string $reason = null): void
+function TODO(string|null $reason = null): void
 {
     if ($reason) {
         throw new Exception\NotImplementedError("An operation is not implemented: $reason");

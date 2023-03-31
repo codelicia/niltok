@@ -28,7 +28,7 @@ final class Result implements JsonSerializable
 
     public function isFailure(): bool
     {
-        return !$this->isSuccess();
+        return ! $this->isSuccess();
     }
 
     public function jsonSerialize(): mixed

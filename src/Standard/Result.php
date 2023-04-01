@@ -14,6 +14,7 @@ use JsonSerializable;
  */
 final class Result implements JsonSerializable
 {
+    /** @var mixed[] */
     private array $value;
 
     public function __construct(mixed $value)

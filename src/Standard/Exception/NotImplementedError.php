@@ -9,5 +9,6 @@ use RuntimeException;
 /** @internal */
 final class NotImplementedError extends RuntimeException
 {
+    /** @var string */
     protected $message = 'An operation is not implemented.';
 }

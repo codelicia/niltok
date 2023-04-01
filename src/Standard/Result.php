@@ -14,6 +14,7 @@ use JsonSerializable;
  */
 final class Result implements JsonSerializable
 {
+    /** @var mixed[] */
     private array $value;
 
     public function __construct(mixed $value)
@@ -28,7 +29,7 @@ final class Result implements JsonSerializable
 
     public function isFailure(): bool
     {
-        return !$this->isSuccess();
+        return ! $this->isSuccess();
     }
 
     public function jsonSerialize(): mixed

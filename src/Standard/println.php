@@ -6,6 +6,8 @@ namespace Codelicia\Niltok\Standard;
 
 use Stringable;
 
+use const PHP_EOL;
+
 /**
  * Prints the given {@var $message} and the line separator to the standard output stream.
  */

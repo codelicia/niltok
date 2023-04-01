@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Codelicia\Niltok\String;
 
+use function trim;
+
 /**
  * Returns `true` if this string is empty or consists solely of whitespace characters.
  */

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Codelicia\Niltok\String;
 
+use function ltrim;
+
 /**
  * Returns a sub-sequence of this char sequence having leading characters from the {@var $characters} removed.
  */

@@ -7,7 +7,12 @@ namespace Codelicia\Niltok\Iterable;
 use ArrayObject;
 use Codelicia\Niltok\Ranges\IntRange;
 
+use function array_slice;
 use function Codelicia\Niltok\Standard\entails;
+use function count;
+use function is_array;
+use function iterator_to_array;
+use function min;
 
 /**
  * Returns a list of snapshots of the window of the given {@see $size}
@@ -19,32 +24,33 @@ use function Codelicia\Niltok\Standard\entails;
  * Both {@see $size} and {@see $step} must be positive and can be greater than the number of elements in this collection.
  *
  * @param array $iterable Collection to apply the windows
- * @param int $size The number of elements to take in each window
- * @param int $step The number of elements to move the window forward by on each step, by default 1
+ * @param int   $size     The number of elements to take in each window
+ * @param int   $step     The number of elements to move the window forward by on each step, by default 1
  */
 function windowed(
     iterable $iterable,
     int $size,
     int $step = 1,
-    ?callable $transform = null
+    callable|null $transform = null,
 ): ArrayObject {
     entails($size > 0 && $step > 0, "Both size $size and step $step must be greater than zero.");
 
-    $transform = $transform ?? (static fn ($x) => $x);
+    $transform ??= (static fn ($x) => $x);
 
     $thisSize = count($iterable);
-    $result = new ArrayObject();
-    $index = 0;
-    $range = new IntRange(0, $thisSize - 1);
-    $array = is_array($iterable) ? $iterable : iterator_to_array($iterable);
+    $result   = new ArrayObject();
+    $index    = 0;
+    $range    = new IntRange(0, $thisSize - 1);
+    $array    = is_array($iterable) ? $iterable : iterator_to_array($iterable);
 
     while ($range->contains($index)) {
-        $windowSize = min($size, ($thisSize - $index));
+        $windowSize = min($size, $thisSize - $index);
         if ($size > $windowSize) {
             break;
         }
+
         $result[] = $transform(array_slice($array, $index, $windowSize));
-        $index += $step;
+        $index   += $step;
     }
 
     return $result;

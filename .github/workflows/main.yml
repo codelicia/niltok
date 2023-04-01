@@ -32,6 +32,9 @@ jobs:
         env:
           COMPOSER_ROOT_VERSION: dev-master
 
+      - name: Run phpcs
+        run: ./vendor/bin/phpcs
+
       - name: Run Phpunit
         run: php -dzend.assertions=1 ./vendor/bin/phpunit
 

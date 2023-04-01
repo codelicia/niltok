@@ -16,13 +16,23 @@
     <file>tests</file>
 
     <rule ref="Doctrine">
-        <!-- Ignore type hinting check, it should be done by psalm -->
-        <exclude name="Generic.Files.LineLength.TooLong"/>
-        <exclude name="Squiz.Functions.GlobalFunction.Found"/>
-        <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint"/>
+        <!-- Remove object-oriented programming rules that are incompatible with functional programming paradigm -->
         <exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint"/>
         <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint"/>
+        <exclude name="Squiz.Functions.GlobalFunction"/>
+
+        <!-- Keep it closer to Kotlin standards -->
+        <exclude name="Generic.Files.LineLength.TooLong"/>
+        <exclude name="PSR12.Files.OpenTag.NotAlone"/>
         <exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix"/>
+        <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+        <properties>
+            <property name="declareOnFirstLine" value="true" />
+            <property name="linesCountAfterDeclare" value="1" />
+        </properties>
     </rule>
 </ruleset>

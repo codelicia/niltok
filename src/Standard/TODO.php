@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Codelicia\Niltok\Standard;
 
+use Codelicia\Niltok\Attribute\SinceNiltok;
+
 /**
  * An exception is thrown to indicate that a method body remains to be implemented.
  *
@@ -11,6 +13,7 @@ namespace Codelicia\Niltok\Standard;
  *
  * @return void
  */
+#[SinceNiltok(version: '0.1.0')]
 function TODO(string|null $reason = null): void
 {
     if ($reason) {

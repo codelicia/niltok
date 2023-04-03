@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Codelicia\Niltok\Standard;
 
+use Codelicia\Niltok\Attribute\SinceNiltok;
 use Throwable;
 
 /**
@@ -11,6 +12,7 @@ use Throwable;
  *
  * @throws Throwable
  */
+#[SinceNiltok(version: '0.1.0')]
 function throws(bool $value, Throwable $throwable): void
 {
     if (! $value) {

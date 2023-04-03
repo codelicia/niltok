@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Codelicia\Niltok\Iterable;
 
 use ArrayObject;
+use Codelicia\Niltok\Attribute\SinceNiltok;
 use Codelicia\Niltok\Ranges\IntRange;
 
 use function array_slice;
@@ -27,6 +28,7 @@ use function min;
  * @param int   $size     The number of elements to take in each window
  * @param int   $step     The number of elements to move the window forward by on each step, by default 1
  */
+#[SinceNiltok(version: '0.1.0')]
 function windowed(
     iterable $iterable,
     int $size,

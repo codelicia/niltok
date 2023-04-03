@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Codelicia\Niltok\Standard;
 
 use JsonSerializable;
+use Codelicia\Niltok\Attribute\SinceNiltok;
 
 /**
  * A discriminated union that encapsulates a successful outcome with a value of type [T]
@@ -12,6 +13,7 @@ use JsonSerializable;
  *
  * @param-out T
  */
+#[SinceNiltok(version: '0.1.0')]
 final class Result implements JsonSerializable
 {
     /** @var mixed[] */
@@ -34,6 +36,6 @@ final class Result implements JsonSerializable
 
     public function jsonSerialize(): mixed
     {
-        TODO();
+        TODO("In the functional kotlin book, we can actually have an example of Result usage.");
     }
 }

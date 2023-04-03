@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Codelicia\Niltok\Ranges;
 
+use Codelicia\Niltok\Attribute\SinceNiltok;
 use Countable;
 use Iterator;
 use Stringable;
@@ -11,6 +12,7 @@ use Stringable;
 /**
  * A range of values of type `Int`.
  */
+#[SinceNiltok(version: '0.1.0')]
 final class IntRange implements Iterator, Countable, Stringable
 {
     private int $pointer;
@@ -19,6 +21,10 @@ final class IntRange implements Iterator, Countable, Stringable
         private readonly int $start,
         private readonly int $endInclusive,
     ) {
+        if ($this->start > $this->endInclusive) {
+            throw new \InvalidArgumentException("Start cannot be greater than end");
+        }
+
         $this->pointer = $this->start;
     }
 

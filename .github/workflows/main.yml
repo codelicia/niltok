@@ -19,6 +19,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
+          tools: cs2pr
 
       - name: Install dependencies
         if: matrix.dependencies == 'normal'
@@ -33,13 +34,10 @@ jobs:
           COMPOSER_ROOT_VERSION: dev-master
 
       - name: Run phpcs
-        run: ./vendor/bin/phpcs
+        run: ./vendor/bin/phpcs -q --report=checkstyle | cs2pr
 
       - name: Run Phpunit
         run: php -dzend.assertions=1 ./vendor/bin/phpunit
-
-      - name: Run PhpCs
-        run: ./vendor/bin/phpcs -q --report=checkstyle | ./vendor/bin/cs2pr
 
       - name: Run Qodana
         if: matrix.php-versions == '8.2' && matrix.dependencies == 'normal'

@@ -1,11 +1,9 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Codelicia\Niltok\Standard;
 
-use JsonSerializable;
 use Codelicia\Niltok\Attribute\SinceNiltok;
+use JsonSerializable;
 
 /**
  * A discriminated union that encapsulates a successful outcome with a value of type [T]
@@ -36,6 +34,6 @@ final class Result implements JsonSerializable
 
     public function jsonSerialize(): mixed
     {
-        TODO("In the functional kotlin book, we can actually have an example of Result usage.");
+        TODO('In the functional kotlin book, we can actually have an example of Result usage.');
     }
 }

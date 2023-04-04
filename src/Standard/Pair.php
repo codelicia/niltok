@@ -7,6 +7,14 @@ namespace Codelicia\Niltok\Standard;
 use Codelicia\Niltok\Attribute\SinceNiltok;
 use Stringable;
 
+use function count;
+use function get_resource_type;
+use function is_array;
+use function is_bool;
+use function is_object;
+use function is_resource;
+use function sprintf;
+
 #[SinceNiltok(version: '0.1.0')]
 final class Pair implements Stringable
 {
@@ -33,6 +41,7 @@ final class Pair implements Stringable
         );
     }
 
+    /** @return array<mixed,mixed> */
     public function toArray(): array
     {
         return [$this->first, $this->second];
@@ -44,7 +53,7 @@ final class Pair implements Stringable
             return $value ? 'true' : 'false';
         }
 
-        if (is_null($value)) {
+        if ($value === null) {
             return 'null';
         }
 
@@ -53,13 +62,13 @@ final class Pair implements Stringable
         }
 
         if (is_object($value)) {
-            return get_class($value);
+            return $value::class;
         }
 
         if (is_resource($value)) {
             return get_resource_type($value);
         }
 
-        return sprintf('"%s"', $value);
+        return sprintf('%s', $value);
     }
 }

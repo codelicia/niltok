@@ -9,7 +9,6 @@ use Codelicia\Niltok\Ranges\IntRange;
 use function array_slice;
 use function Codelicia\Niltok\Standard\entails;
 use function count;
-use function is_array;
 use function iterator_to_array;
 use function min;
 
@@ -22,9 +21,9 @@ use function min;
  *
  * Both {@see $size} and {@see $step} must be positive and can be greater than the number of elements in this collection.
  *
- * @param array $iterable Collection to apply the windows
- * @param int   $size     The number of elements to take in each window
- * @param int   $step     The number of elements to move the window forward by on each step, by default 1
+ * @param iterable $iterable Collection to apply the windows
+ * @param int      $size     The number of elements to take in each window
+ * @param int      $step     The number of elements to move the window forward by on each step, by default 1
  */
 #[SinceNiltok(version: '0.1.0')]
 function windowed(
@@ -41,7 +40,6 @@ function windowed(
     $result   = new ArrayObject();
     $index    = 0;
     $range    = new IntRange(0, $thisSize - 1);
-    $array    = is_array($iterable) ? $iterable : iterator_to_array($iterable);
 
     while ($range->contains($index)) {
         $windowSize = min($size, $thisSize - $index);
@@ -49,7 +47,7 @@ function windowed(
             break;
         }
 
-        $result[] = $transform(array_slice($array, $index, $windowSize));
+        $result[] = $transform(array_slice(iterator_to_array($iterable), $index, $windowSize));
         $index   += $step;
     }
 

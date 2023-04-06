@@ -4,7 +4,8 @@ namespace Codelicia\Niltok\Attribute;
 
 use Attribute;
 
-#[Attribute] final class SinceNiltok
+#[Attribute]
+final class SinceNiltok
 {
     public function __construct(public string $version)
     {

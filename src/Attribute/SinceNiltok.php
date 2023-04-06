@@ -6,5 +6,7 @@ use Attribute;
 
 #[Attribute] final class SinceNiltok
 {
-    public string $version;
+    public function __construct(public string $version)
+    {
+    }
 }

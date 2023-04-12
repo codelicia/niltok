@@ -7,16 +7,17 @@
       "Codelicia\\Niltok\\": "src/"
     },
     "files": [
-      "./src/Standard/repeat.php",
+      "./src/Iterable/windowed.php",
+      "./src/Ranges/rangeCheck.php",
       "./src/Standard/TODO.php",
-      "./src/Standard/error.php",
       "./src/Standard/check.php",
       "./src/Standard/entails.php",
-      "./src/Iterable/windowed.php",
-      "./src/String/trim_start.php",
-      "./src/String/is_blank.php",
+      "./src/Standard/error.php",
       "./src/Standard/println.php",
-      "./src/Standard/throws.php"
+      "./src/Standard/repeat.php",
+      "./src/Standard/throws.php",
+      "./src/String/is_blank.php",
+      "./src/String/trim_start.php"
     ]
   },
   "require": {

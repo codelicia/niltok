@@ -22,16 +22,7 @@ jobs:
           tools: cs2pr
 
       - name: Install dependencies
-        if: matrix.dependencies == 'normal'
-        run: composer install --prefer-dist
-        env:
-          COMPOSER_ROOT_VERSION: dev-master
-
-      - name: Install dependencies
-        if: matrix.dependencies == 'authoritative'
-        run: composer install --prefer-dist --classmap-authoritative
-        env:
-          COMPOSER_ROOT_VERSION: dev-master
+        run: composer install
 
       - name: Run phpcs
         run: ./vendor/bin/phpcs -q --report=checkstyle | cs2pr

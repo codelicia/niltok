@@ -29,6 +29,3 @@ jobs:
 
       - name: Run Phpunit
         run: php -dzend.assertions=1 ./vendor/bin/phpunit
-
-      - name: Run Qodana
-        uses: JetBrains/qodana-action@v2023.2.1
